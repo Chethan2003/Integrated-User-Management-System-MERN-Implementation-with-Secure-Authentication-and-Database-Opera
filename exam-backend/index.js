@@ -17,9 +17,9 @@ app.post("/register",(req,res)=>{
     .catch(err=>res.json(err))
 })
 
-app.get("/:name", (req, res) => {
+app.get("/getbyname/:name", (req, res) => {
     const userName = req.params.name;
-  
+    
     UserModel.findOne({ name: userName }) // Use findOne to find a single user
       .then(user => {
         if (user) {
@@ -32,8 +32,8 @@ app.get("/:name", (req, res) => {
       .catch(err => res.json(err));
   })
   
-  app.get("/", (req, res) => {
-
+  app.get("/allusers", (req, res) => {
+    console.log("came")
     UserModel.find({})
     .then(user => {
         res.json(user)
@@ -59,9 +59,10 @@ app.delete('/deleteUser/:id', (req,res) => {
 
 app.put('/update/:id',(req,res)=>{
     const id = req.params.id;
+    console.log(id)
 
-    UserModel.updateOne({_id:id},{
-        name: req.body.name,
+    UserModel.updateMany({_id:id},{
+        name: req.body.name,  
         reg: req.body.reg,
         email: req.body.email,
         password: req.body.password

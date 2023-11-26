@@ -6,7 +6,7 @@ function Admin() {
     const [users, setUser] = useState([]) // Initialize user as null
   
     useEffect(() => {
-        axios.get("http://localhost:3001")
+        axios.get("http://localhost:3001/allusers/")
           .then(result => {
             console.log(result)
             setUser(result.data)
@@ -55,7 +55,7 @@ function Admin() {
                         </tr>
                     })
                 }
-                {/* {users.map((user)=>(
+                {users.map((user)=>(
                         <tr>
                         <td>{user.name}</td>
                         <td>{user.reg}</td>
@@ -67,7 +67,7 @@ function Admin() {
                         </td>
                         </tr>
                 ))
-                } */}
+                }
               </tbody>
             </table>
           )}

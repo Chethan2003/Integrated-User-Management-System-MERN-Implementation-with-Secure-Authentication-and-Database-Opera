@@ -8,7 +8,7 @@ function Success() {
   const { name } = useParams();
 
   useEffect(() => {
-    axios.get("http://localhost:3001/"+name)
+    axios.get("http://localhost:3001/getbyname/"+name)
       .then(result => {
         console.log(result);
         setUser(result.data);

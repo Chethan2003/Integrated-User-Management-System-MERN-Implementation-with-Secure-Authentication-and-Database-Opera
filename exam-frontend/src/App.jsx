@@ -5,6 +5,7 @@ import Login from "./components/Login";
 import Success from "./components/Success";
 import Admin from "./components/Admin";
 import Update from "./components/Update";
+import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 
 
 function App() {
